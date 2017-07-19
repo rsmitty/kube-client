@@ -1,6 +1,7 @@
 /*
-This file implements the pods list subcommand for cobra
-and defines the pods list and pods delete subcommand.
+This file implements the pods list subcommand for cobra.
+It calls the Kubernetes API to retrieve a list of pods
+from a given namespace.
 */
 
 package cmd

@@ -1,6 +1,9 @@
 /*
 This file implements the pods subcommand for cobra
 and defines the pods list and pods delete subcommand.
+
+It is also responsible for adding the kubeconfig and
+namespace flags to each subcommand.
 */
 
 package cmd
@@ -19,7 +22,6 @@ var pod = &cobra.Command{
 }
 
 func init() {
-
 	//Grab user's home directory to use in defaults below
 	user, err := user.Current()
 	if err != nil {

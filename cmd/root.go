@@ -1,5 +1,6 @@
 /*
 This file implements the root command for cobra and adds the pods subcommand.
+It also handles the setting of the log level with the --log-level flag
 */
 
 package cmd
@@ -9,6 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+//RootCmd adds 'kube-client' root command and handles the log-level flag for root and any subcommands
 var RootCmd = &cobra.Command{
 	Use:   "kube-client",
 	Short: "A toy kubernetes client in golang",
@@ -29,6 +31,7 @@ var RootCmd = &cobra.Command{
 	},
 }
 
+//Ensure log-level flag can be used on any subcommand and add the 'pod' subcommand
 func init() {
 	RootCmd.PersistentFlags().String("log-level", "info", "A desired logging level. Supported vals: debug, info, error")
 	RootCmd.AddCommand(pod)

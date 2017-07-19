@@ -1,3 +1,7 @@
+/*
+This file is here to put commonly used Kubernetes functions into a single spot.
+*/
+
 package utils
 
 import (
@@ -8,6 +12,8 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 )
 
+//GetClientSet creates a Kubernetes config from the config file passed in.
+//Returns a pointer to a clientset that can be used for API requests.
 func GetClientSet(configPath string) *kubernetes.Clientset {
 	config, err := clientcmd.BuildConfigFromFlags("", configPath)
 	if err != nil {
